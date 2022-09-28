@@ -6,6 +6,7 @@ import ReactTyped from 'react-typed'
 import Particles from 'react-tsparticles'
 import { loadFull } from "tsparticles";
 import particlesOptions from "../data/ts-particles.json"
+import NextHead from "../components/common/head";
 
 const Home = () => {
   const particlesInit = useCallback(async (engine) => {
@@ -21,45 +22,48 @@ const Home = () => {
   }, []);
 
   return (
-    <section className='sc-home-cover'>
-      <Particles
-        id="tsparticles"
-        options={particlesOptions}
-        init={particlesInit}
-        loaded={particlesLoaded}
-      />
-      <div className="container mw-md">
+    <>
+      <NextHead />
+      <section className='sc-home-cover'>
+        <Particles
+          id="tsparticles"
+          options={particlesOptions}
+          init={particlesInit}
+          loaded={particlesLoaded}
+        />
+        <div className="container mw-md">
+          <Fade>
+            <div className="banner d-flex justify-content-center align-items-center flex-column">
+              <p className="text-center mb-0">
+                The website is currently under development. Stay tuned!
+              </p>
+              <br></br>
+              <h1 className="mb-0">FAIZ ADIL KHATAMI</h1>
+              <br></br>
+              <p>
+                <ReactTyped
+                  strings={[
+                    "Software Engineer",
+                    "Front-End Developer",
+                    "Gamer ??? :D",
+                  ]}
+                  typeSpeed={40}
+                  backDelay={1100}
+                  backSpeed={30}
+                  loop
+                />
+              </p>
+            </div>
+            <div className="start">
+              <div className="btn-start">Good things are coming...</div>
+            </div>
+          </Fade>
+        </div>
         <Fade>
-          <div className="banner d-flex justify-content-center align-items-center flex-column">
-            <p className="text-center mb-0">
-              The website is currently under development. Stay tuned!
-            </p>
-            <br></br>
-            <h1 className="mb-0">FAIZ ADIL KHATAMI</h1>
-            <br></br>
-            <p>
-              <ReactTyped
-                strings={[
-                  "Software Engineer",
-                  "Front-End Developer",
-                  "Gamer ??? :D",
-                ]}
-                typeSpeed={40}
-                backDelay={1100}
-                backSpeed={30}
-                loop
-              />
-            </p>
-          </div>
-          <div className="start">
-            <div className="btn-start">Good things are coming...</div>
-          </div>
+          <div className="intro-underlined"></div>
         </Fade>
-      </div>
-      <Fade>
-        <div className="intro-underlined"></div>
-      </Fade>
-    </section>
+      </section>
+    </>
 
   )
 }
